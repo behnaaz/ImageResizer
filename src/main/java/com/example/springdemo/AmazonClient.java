@@ -125,12 +125,11 @@ public class AmazonClient {
 		return IOUtils.toByteArray(obj.getObjectContent());
 	}
 
-	public byte[] getProcessedImage(String name, int width, int length) throws IOException {
-		return getImage(name + "_" + width + "_" + length);
+	public byte[] getProcessedImage(String name, ImageModificationType modificationType) throws IOException {
+		return getImage(modificationType.getName() + name);
 	}
 
 	public byte[] getOriginalImage(String name) throws IOException {
-		return getImage(name + "_original");
-		// TODO Auto-generated method stub
+		return getImage(name);
 	}
 }

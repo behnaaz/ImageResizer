@@ -21,11 +21,11 @@ public class ResizerServiceTest {// clean pom
 		ImageResizerUtil resizer = mock(ImageResizerUtil.class);
 		when(resizer.resize(smallPNG, 1, 1, "png")).thenReturn(fakeResizedPNG);//TODO only png remove param
 		AmazonClient client = mock(AmazonClient.class);
-		when(client.getProcessedImage("a", 1, 1)).thenReturn("hola".getBytes());
+		when(client.getProcessedImage("a", ImageModificationType.Thumbnail)).thenReturn("hola".getBytes());
 		when(client.getOriginalImage("b")).thenReturn(smallPNG);
 		when(client.uploadFile(fakeResizedPNG, "b")).thenReturn("OK");//TODO
 		
-		assertArrayEquals(client.getProcessedImage("a", 1, 1), "hola".getBytes());
+		assertArrayEquals(client.getProcessedImage("a", ImageModificationType.Thumbnail), "hola".getBytes());
 
 		ImageResizerController controller = new ImageResizerController(client);
 		byte[] res = controller.getImage("a", "param2", "param3");

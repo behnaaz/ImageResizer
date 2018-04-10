@@ -9,7 +9,7 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 
 public class ImageResizerUtil {
-	public static byte[] resize(byte[] originalImage, int width, int height, String imageType) throws IOException {
+	public byte[] resize(byte[] originalImage, int width, int height, String imageType) throws IOException {
 		// TODO Auto-generated method stub
 		BufferedImage originalBufferedImage = ImageIO.read(new ByteArrayInputStream(originalImage));// TODO close the
 																									// stream
